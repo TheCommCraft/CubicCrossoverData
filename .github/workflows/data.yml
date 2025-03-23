@@ -20,7 +20,7 @@ jobs:
         run: |
           lftp -e "
           open sftp://${{ secrets.SFTP_USER }}:${{ secrets.SFTP_PASSWORD }}@${{ secrets.SFTP_HOST }}
-          mirror --verbose --reverse --continue --parallel=2 ${{ secrets.SFTP_PATH }} ./data
+          mirror --verbose --reverse --continue --parallel=2 ./data ${{ secrets.SFTP_PATH }}
           bye
           "
 
