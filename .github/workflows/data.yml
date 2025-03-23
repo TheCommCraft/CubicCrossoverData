@@ -20,8 +20,7 @@ jobs:
         run: |
           lftp -e "
           open -u ${{ secrets.SFTP_USER }},${{ secrets.SFTP_PASSWORD }} ${{ secrets.SFTP_HOST }}
-          pwd
-          mirror --verbose --reverse --continue --parallel=2 ${{ secrets.SFTP_PATH }} ./data
+          mirror --verbose --reverse --continue --parallel=2 \$(pwd) ./data
           bye
           "
 
