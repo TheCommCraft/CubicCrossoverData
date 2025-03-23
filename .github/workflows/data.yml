@@ -23,7 +23,7 @@ jobs:
           open sftp://${{ secrets.SFTP_USER }}:${{ secrets.SFTP_PASSWORD }}@${{ secrets.SFTP_HOST }}
           mirror --verbose ${{ secrets.SFTP_PATH }} ./data 
           bye
-          ">nul
+          " > output
 
       - name: Configure Git
         run: |
