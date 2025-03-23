@@ -19,7 +19,7 @@ jobs:
       - name: Fetch Data from SFTP
         run: |
           lftp -e "
-          set sftp:host-key ${{ secrets.HOST_KEY }}
+          set sftp:connect-program 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
           open sftp://${{ secrets.SFTP_USER }}:${{ secrets.SFTP_PASSWORD }}@${{ secrets.SFTP_HOST }}
           mirror --verbose ${{ secrets.SFTP_PATH }} ./data
           bye
