@@ -38,10 +38,10 @@ PID = 824262326
 
 session = login_by_id(os.environ["SESSION_ID"], username="StrangeIntensity")
 project = session.connect_project(PID)
-conn = TwCloud(project_id = "CubicCrossover") 
+conn = session.connect_cloud(project_id = PID) 
 tw_conn = TwCloud(project_id = PID)  
 
-events = conn.events()
+#events = conn.events()
 client = conn.requests(used_cloud_vars=["1", "2", "3"])
 twclient = tw_conn.requests(used_cloud_vars=["1", "2", "3"])
 
