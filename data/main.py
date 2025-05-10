@@ -80,9 +80,9 @@ def add_level(id=None, *, ldata=None, output=None):
 @client.event
 def on_request(request):
   print("Received request")
-  if request.name in ["loadlevel", "loadtab", "random", "like", "unlike"]:
+  if request.request in ["loadlevel", "loadtab", "random", "like", "unlike"]:
     return
-  logs["logs"].append([request.requester, request.name, request.arguments, request.timestamp])
+  logs["logs"].append([request.requester, request.request.name, request.arguments, request.timestamp])
   logs.write()
 
 @client.request(name="loadtab")
