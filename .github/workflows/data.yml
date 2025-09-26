@@ -1,8 +1,6 @@
 name: Sync SFTP Data to GitHub
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # Runs every 24 hours at midnight UTC
   workflow_dispatch: # Allows manual execution
 
 jobs:
